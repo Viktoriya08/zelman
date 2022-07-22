@@ -1,0 +1,38 @@
+.btn-more{
+    border: none;
+    padding: 0;
+    padding-right: 20px;
+    background-color: transparent;
+    color: #fff;
+    position: relative;
+    &::after{
+        content: " ";
+        display: block;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-image: url(../images/next.svg);
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-position: center;
+    }
+    &.open{
+        color: #EA5E20;
+        &::after{
+            background-image: url(../images/next-or.svg);
+        }
+    }
+    &--blue{
+        color: #1E1E3B;
+        background-color: #F3F3F9;
+        padding: 10px 20px;
+        padding-right: 33px;
+        &::after{
+            background-image: url(../images/next-bl.svg);
+            top: 11px;
+            right: 15px;
+        }
+    }
+}

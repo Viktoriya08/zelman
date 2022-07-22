@@ -1,0 +1,45 @@
+.el-catalog{
+    
+    & .el-catalog__item{
+        background-color: #fff;
+        color: #1E1E3B;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 13px 10px;
+        & span{
+            font-size: 16px;
+            line-height: 18px;
+        }
+    }
+    & .el-catalog__img{
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        & svg{
+            fill: #DB4300;
+            color: #232462;
+        }
+    }
+}
+@media (min-width:768px) {
+    .el-catalog{
+    
+        & .el-catalog__item{
+
+            &:hover {
+                background-color: #EA5E20;
+                & .el-catalog__img svg{
+                    fill: #fff;
+                    color: #fff;
+                }
+                & span{
+                    color: #fff;
+                }
+            }
+        }
+
+    }
+}

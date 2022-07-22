@@ -1,0 +1,312 @@
+.search{
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    & .search__input{
+        width: 100%;
+    }
+    &--mob{
+        display: block;
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end;
+        & .search__input{
+            display: none;
+            background-color: #242568;
+            border: none;
+            font-size: 14px;
+            line-height: 18px;
+            width: 100%;
+            outline: #242568;
+            caret-color: #EA5E20;
+            color: #fff;
+            &::placeholder{
+                color: #7B7B8D;
+                font-size: 14px;
+                line-height: 18px;
+            }
+            &.open{
+                display: block;
+            }
+        }
+        &.open{
+            justify-content: flex-start;
+            & .search-form{
+                justify-content: flex-start;
+                gap: 10px;
+                &.search-open{
+                    justify-content: space-between;
+                    padding-left: 10px;
+                }
+                & .search__input{
+                    display: block;
+
+                }
+            }
+        }
+    }
+    & .search__cross{
+        position: relative;
+        width: 18px;
+        height: 18px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        &:before{
+            content: " ";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 7px;
+            transform: rotate(45deg);
+            width: 100%;
+            height: 1px;
+            background-color: #7B7B8D;
+        }
+        &:after{
+            content: " ";
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 7px;
+            transform: rotate(-45deg);
+            width: 100%;
+            height: 1px;
+            background-color: #7B7B8D;
+        }
+    }
+
+}
+.search-form{
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    & .search__cross{
+        display: none;
+    }
+    &.search-open{
+        & .search__cross{
+            display: block;
+            margin-right: 10px;
+            flex: 0 0 auto;
+        }
+    }
+    & .btn-more{
+        display: none;
+    }
+    & .search-form__categ{
+        display: none;
+    }
+    & .search-result{
+        position: absolute;
+        left: 0;
+        bottom: -403px;
+        width: 100%;
+        max-height: 400px;
+    }
+}
+.search-result{
+    padding-top: 20px;
+    padding-right: 9px;
+    background-color: #fff;
+    box-shadow: 0px 3px 10px #0000001A;
+    z-index: 5;
+    display: none;
+    & .search-result__el{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #1E1E3B;
+        & .search-result__img{
+            width: 38px;
+            height: 38px;
+            & img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        & p{
+            font-size: 14px;
+            line-height: 18px;
+            width: 342px;
+            margin-top: 0;
+            margin-right: 10px;
+        }
+        & .search-result__count{
+            display: none;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            line-height: 18px;
+            margin-right: 10px;
+            &::before{
+                content: attr(data-count);
+                color: #EA5E20;
+                font-size: 14px;
+                line-height: 18px;
+            }
+            &[data-count="В наличии"]::after{
+                content: " ";
+                display: block;
+                width: 17px;
+                height: 12px;
+                background: url(/images/search-ok.svg) center no-repeat;
+            }
+            &[data-count="Под заказ"]::after{
+                content: " ";
+                display: block;
+                width: 17px;
+                height: 12px;
+                background: url(/images/search-car.svg) center no-repeat;
+            }
+        }
+        & .search-result__price{
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: 700;
+            display: none;
+        }
+        &:hover{
+            background-color: #EA5E20;
+            color: #fff;
+            & .search-result__count{
+                &::before{
+                    content: attr(data-count);
+                    color: #fff;
+                }
+                &[data-count="В наличии"]::after{
+                    background: url(/images/search-ok-w.svg) center no-repeat;
+                }
+                &[data-count="Под заказ"]::after{
+                    background: url(/images/search-car-w.svg) center no-repeat;
+                }
+            }
+        }
+    }
+    & .simplebar-track.simplebar-vertical{
+        top: -3px;
+        width: 7px;
+        &:hover .simplebar-scrollbar:before{
+            background: #EA5E20;
+        }
+    }
+    & .simplebar-scrollbar{
+        right: -2px;
+        &:before{
+        border-radius: 0;
+        background: #7B7B8D;
+        opacity: 1;
+        }
+    }
+    
+}
+@media (min-width:768px) {
+    .search-form{
+        justify-content: flex-start;
+        flex-direction: row-reverse;
+        min-height: 50px;
+        border: 1px solid #F3F3F9;
+        padding: 5px 20px;
+        &:hover{
+            border-color: #EA5E20;
+            /* border: 2px solid #EA5E20; */
+        }
+        & .search__input{
+            border: none;
+            outline: #fff;
+            font-size: 14px;
+            &::placeholder{
+                font-size: 14px;
+                line-height: 18px;
+                color: #7B7B8D;
+            }
+        }
+        & .btn-icon{
+            order: -2;
+        }
+        &.search-open{
+            & .search__cross{
+                order: -1;
+            }
+        }
+    }
+}
+
+@media (min-width:1366px) {
+    .search-form{
+        padding-left: 5px;
+        gap: 20px;
+        min-width: 366px;
+        & .btn-more{
+            display: flex;
+            order: 1;
+            font-size: 14px;
+            line-height: 18px;
+            white-space: nowrap;
+            padding-right: 40px;
+            &--blue{
+                &.choise{
+                    background-color: #242568;
+                    color: #fff;
+                    &::after {
+                        background-image: url(../images/close.png);
+                    }
+                }
+                &.cat-open{
+                    background-color: #EA5E20;
+                    color: #fff;
+                    &::after {
+                        background-image: url(../images/next.svg);
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+        }
+        & .search-form__categ{
+            flex-wrap: wrap;
+            gap: 10px;
+            position: absolute;
+            left: 0;
+            bottom: -105px;
+            background-color: #fff;
+            box-shadow: 0px 3px 10px #0000001A;
+            padding: 10px 15px;
+            min-width: 822px;
+            z-index: 5;
+            & li{
+                color: #1E1E3B;
+                font-size: 14px;
+                line-height: 18px;
+                padding: 8px 15px;
+                background-color: #F3F3F9;
+                cursor: pointer;
+                &:hover{
+                    background-color: #EA5E20;
+                    color: #fff;
+                }
+            }
+            &.open{
+               display: flex; 
+            }
+        }
+    }
+    .search-result{
+        & .search-result__el{
+            & .search-result__img{
+                width: 50px;
+                height: 50px;
+            }
+            & .search-result__count{
+                display: flex;
+            }
+            & .search-result__price{
+                display: block;
+            }
+        }
+    }
+}

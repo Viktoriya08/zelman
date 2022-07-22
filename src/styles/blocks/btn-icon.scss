@@ -1,0 +1,15 @@
+.btn-icon{
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    min-height: 24px;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.05);
+    }
+}
